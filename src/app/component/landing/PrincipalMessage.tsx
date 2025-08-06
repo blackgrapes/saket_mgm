@@ -34,7 +34,7 @@ const PrincipalMessage = () => {
             </p>
             <p className="text-[#f82f53] font-semibold text-lg mb-4">BIBHAS RANJAN PAL Principal</p>
             <button className="bg-[#f82f53] text-white font-semibold py-2 px-6 rounded-md transition hover:bg-[#e72749] cursor-pointer">
-              Read Principal's Full Message
+              Read Principal&apos;s Full Message
             </button>
           </div>
         </div>
