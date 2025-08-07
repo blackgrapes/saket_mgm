@@ -16,7 +16,6 @@ const navItems = [
   { name: 'Gallery', path: '/gallery' },
   { name: 'Contact Us', path: '/contact' },
   { name: 'News & Notices', path: '/news' },
-  { name: 'Blog & Events', path: '/blog' },
   { name: 'Assignments', path: '/assignments' },
 ];
 
