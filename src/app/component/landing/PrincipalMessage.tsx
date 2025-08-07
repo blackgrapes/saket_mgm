@@ -19,6 +19,7 @@ const PrincipalMessage = () => {
                 src="/principal.jpg" // 💡 Place your image here
                 alt="BIBHAS RANJAN PAL Principal"
                 fill
+                priority
                 className="object-cover"
               />
             </div>
