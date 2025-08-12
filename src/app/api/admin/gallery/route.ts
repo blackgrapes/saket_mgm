@@ -3,14 +3,11 @@ import { NextResponse } from "next/server";
 import { v2 as cloudinary, UploadApiResponse, UploadApiErrorResponse } from "cloudinary";
 import { Readable } from "stream";
 import mongoose from "mongoose";
-import Gallery from "@/models/galleryImage";
+import Gallery from "@/models/galleryImage";  
+import { connectDB } from "@/lib/mongodb";
 
 // 📌 Connect to MongoDB
-async function connectDB() {
-  if (mongoose.connection.readyState >= 1) return;
-  await mongoose.connect(process.env.MONGODB_URI as string);
-}
-
+connectDB()
 // 📌 Cloudinary config
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -77,7 +74,7 @@ export async function POST(req: Request) {
       message: "Uploaded and saved successfully",
       data: newImage,
     });
-  } catch (error: unknown) {
+  } catch (error) {
     console.error("Upload error:", error);
     return NextResponse.json(
       { error: error instanceof Error ? error.message : "Upload failed" },
