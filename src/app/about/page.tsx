@@ -1,4 +1,16 @@
+import AboutSection from "../component/about/aboutSection";
+import LegacySection from "../component/about/legacySection";
+import VisionMissionValues from "../component/about/visionMissionValues";
+import WhyChoose from "../component/about/whyChoose";
+
 // Example: about/page.tsx
 export default function AboutPage() {
-  return <div className="p-10 text-2xl">About Us Page</div>;
+  return(  
+    <>
+    <LegacySection/>
+    <AboutSection/>
+    <WhyChoose/>
+    <VisionMissionValues/>
+    </>
+)
 }

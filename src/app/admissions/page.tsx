@@ -1,3 +1,13 @@
+import AdmissionProcedure from "../component/admission/admissionProcedure";
+import AdmissionProcess from "../component/admission/admissionProcess";
+import AdmissionsHeader from "../component/admission/admissionsHeader";
+
 export default function AdmissionsPage() {
-  return <div className="p-10 text-2xl">admissions Page</div>;
+  return(
+    <>
+    <AdmissionsHeader/>
+    <AdmissionProcess/>
+    <AdmissionProcedure/>
+    </>
+  )
 }

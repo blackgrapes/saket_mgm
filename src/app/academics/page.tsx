@@ -1,4 +1,14 @@
+import AcademicExcellence from "../component/academic/academicExcellence";
+import CurriculumSection from "../component/academic/curriculumSection";
+import TeachingMethods from "../component/academic/teachingMethods";
+
 // Example: about/page.tsx
 export default function AcademicsPage() {
-  return <div className="p-10 text-2xl">Academic Page</div>;
+  return (
+  <>
+  <AcademicExcellence/>
+  <CurriculumSection/>
+  <TeachingMethods/>
+  </>
+)
 }
