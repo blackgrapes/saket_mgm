@@ -41,6 +41,7 @@ export default function AdminAdmissionsPage() {
         const data: Admission[] = await res.json();
         setAdmissions(data);
       } catch (error) {
+        console.log(error)
         setError('Something went wrong');
       } finally {
         setLoading(false);
