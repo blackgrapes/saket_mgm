@@ -1,3 +1,19 @@
+import CampusGallery from "../component/Facilities/campusGallery";
+import FacilitiesHero from "../component/Facilities/facilitiesHero";
+import LabsSection from "../component/Facilities/labSections";
+import LibrarySection from "../component/Facilities/librarySection";
+import SafetyAndConvenience from "../component/Facilities/safetyAndConvenience";
+import SportsFacilities from "../component/Facilities/sportsFacilities";
+
 export default function facilitiesPage() {
-  return <div className="p-10 text-2xl"> facilities Page</div>;
+  return (
+    <>
+    <FacilitiesHero/>
+    <LabsSection/>
+    <LibrarySection/>
+    <SportsFacilities/>
+    <SafetyAndConvenience/>
+    <CampusGallery/>
+    </>
+  )
 }

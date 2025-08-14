@@ -3,11 +3,11 @@ import Achievements from "./component/landing/achievements";
 import FacilitiesSection from "./component/landing/FacilitiesSection";
 import GlanceSection from "./component/landing/glanceSection";
 import HeroSection from "./component/landing/herosection";
-import NewsSection from "./component/landing/news";
 import PrincipalMessage from "./component/landing/PrincipalMessage";
 import ApproachSection from "./component/landing/approachsection";
 import TestimonialsSection from "./component/landing/testimonialssection";
 import GallerySection from "./component/landing/GallerySection";
+import NewsSection from "./component/landing/news";
 
 export default function Home() {
   return (

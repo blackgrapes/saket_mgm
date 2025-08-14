@@ -10,9 +10,22 @@ export default function NewsSection() {
 
   useEffect(() => {
     const fetchNews = async () => {
-      const res = await fetch('/api/news');
-      const data = await res.json();
-      setNews(data);
+      try {
+        const res = await fetch('/api/news');
+        const json = await res.json();
+
+        // Check if the data is an array or nested
+        const newsData = Array.isArray(json) ? json : json.data;
+
+        if (Array.isArray(newsData)) {
+          setNews(newsData);
+        } else {
+          console.error('API returned an unexpected format:', json);
+          setNews([]);
+        }
+      } catch (error) {
+        console.error('Failed to fetch news:', error);
+      }
     };
 
     fetchNews();
@@ -30,14 +43,25 @@ export default function NewsSection() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {news.slice(0, visibleCount).map((item) => (
-            <div key={item._id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
+            <div
+              key={item._id}
+              className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition"
+            >
               <div className="relative h-52 w-full">
-                <Image src={item.image} alt={item.title} fill className="object-cover" />
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-4 text-left">
                 <h3 className="font-semibold text-lg text-gray-900">{item.title}</h3>
                 <p className="text-sm text-gray-500 mt-1">{item.date}</p>
-                <a href={item.link} className="text-[#f82f53] text-sm font-medium mt-2 inline-block hover:underline">
+                <a
+                  href="#"
+                  className="text-[#f82f53] text-sm font-medium mt-2 inline-block hover:underline"
+                >
                   Read More
                 </a>
               </div>

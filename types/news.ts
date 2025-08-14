@@ -1,9 +1,9 @@
-// types/news.ts
-
-export interface NewsItem {
-  _id: number;
+export type NewsItem = {
+  _id: string;
   title: string;
-  date: string;
+  content: string;
   image: string;
-  link: string;
-}
+  date: string;
+  category: "Events" | "Announcements" | "Academics" | "General";
+  public_id: string;
+};
