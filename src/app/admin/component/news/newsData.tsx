@@ -9,7 +9,7 @@ export default function AdminNewsPage() {
   const [newsList, setNewsList] = useState<NewsItem[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // 🟢 Fetch News
+  // Fetch News
   const fetchNews = async () => {
     try {
       setLoading(true);

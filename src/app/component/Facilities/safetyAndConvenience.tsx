@@ -9,7 +9,7 @@ export default function SafetyAndConvenience() {
         <h2 className="text-3xl font-bold mb-2">Safety & Convenience</h2>
         <p className="text-gray-600 max-w-2xl mx-auto">
           Your child&apos;s safety and well-being are our top priorities. We
-          ensure a secure and convenient environment for all students.
+          ensure a secure and convenient environment for all students. 
         </p>
       </div>
 

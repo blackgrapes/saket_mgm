@@ -5,7 +5,7 @@ import Testimonial from "@/models/Testimonial"; // ✅ Add this line
 export async function GET() {
   try {
     await connectDB();
-    const testimonials = await Testimonial.find().limit(3);
+    const testimonials = await Testimonial.find();
     return NextResponse.json(testimonials);
   } catch (error) {
     console.error("Error fetching testimonials:", error);

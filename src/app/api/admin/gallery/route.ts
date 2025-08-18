@@ -1,109 +1,79 @@
 // src/app/api/upload/route.ts
+
 import { NextResponse } from "next/server";
-import { v2 as cloudinary, UploadApiResponse, UploadApiErrorResponse } from "cloudinary";
-import { Readable } from "stream";
-import mongoose from "mongoose";
-import Gallery from "@/models/galleryImage";  
 import { connectDB } from "@/lib/mongodb";
-
-// 📌 Connect to MongoDB
-connectDB();
-// 📌 Cloudinary config
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
-
-// 📌 Convert buffer to stream
-function bufferToStream(buffer: Buffer) {
-  const readable = new Readable();
-  readable.push(buffer);
-  readable.push(null);
-  return readable;
-}
-
+import Gallery from "@/models/galleryImage";
+import cloudinary from "cloudinary";
 export async function POST(req: Request) {
   try {
-    console.log("[Upload API] Starting upload process...");
-
-    // Connect to DB
     await connectDB();
-    console.log("[Upload API] Connected to MongoDB");
 
-    // Check env vars
-    console.log("[Upload API] Env vars:",
-      "Cloud Name:", process.env.CLOUDINARY_CLOUD_NAME,
-      "API Key:", process.env.CLOUDINARY_API_KEY?.slice(0,4) + "...",
-      "API Secret:", process.env.CLOUDINARY_API_SECRET ? "SET" : "NOT SET"
-    );
+    const imagesData = await req.json(); // expecting array of images metadata
 
-    const formData = await req.formData();
-    console.log("[Upload API] Form data received");
-
-    const file = formData.get("image") as unknown as File | null;
-    const title = formData.get("title") as string | null;
-    const category = formData.get("category") as string | null;
-    const description = formData.get("description") as string | null;
-
-    console.log("[Upload API] Parsed fields:", { title, category, description, hasFile: !!file });
-
-    if (!file || !title || !category) {
-      console.error("[Upload API] Missing required fields");
-      return NextResponse.json(
-        { error: "Title, category, and image are required" },
-        { status: 400 }
-      );
+    if (!Array.isArray(imagesData) || imagesData.length === 0) {
+      return NextResponse.json({ error: "No images data provided" }, { status: 400 });
     }
 
-    // Convert file to buffer
-    const arrayBuffer = await file.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
-    console.log("[Upload API] File converted to buffer, size:", buffer.length);
+    // Validate required fields for each image here if needed
 
-    // Upload to Cloudinary
-    const uploadResult = await new Promise<UploadApiResponse>((resolve, reject) => {
-      const stream = cloudinary.uploader.upload_stream(
-        {
-          folder: "school-gallery",
-          resource_type: "image",
-          transformation: [{ width: 1600, crop: "scale" }],
-        },
-        (error: UploadApiErrorResponse | undefined, result: UploadApiResponse | undefined) => {
-          if (error) {
-            console.error("[Upload API] Cloudinary upload error:", error);
-            return reject(error);
-          }
-          if (!result) {
-            console.error("[Upload API] Cloudinary upload returned no result");
-            return reject(new Error("No result from Cloudinary"));
-          }
-          console.log("[Upload API] Cloudinary upload success:", result.secure_url);
-          resolve(result);
-        }
-      );
-      bufferToStream(buffer).pipe(stream);
-    });
+    // Insert multiple documents at once
+    await Gallery.insertMany(imagesData);
 
-    // Save to MongoDB
-    const newImage = await Gallery.create({
-      title,
-      category,
-      description,
-      imageUrl: uploadResult.secure_url,
-      date: new Date(),
-    });
-    console.log("[Upload API] Saved new image to DB:", newImage._id);
-
-    return NextResponse.json({
-      message: "Uploaded and saved successfully",
-      data: newImage,
-    });
-
+    return NextResponse.json({ message: "Images saved successfully" }, { status: 201 });
   } catch (error) {
-    console.error("[Upload API] Upload error:", error);
+    console.error(error);
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : "Upload failed" },
+      { error: error instanceof Error ? error.message : "Failed to save images" },
+      { status: 500 }
+    );
+  }
+} 
+cloudinary.v2.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME!,
+  api_key: process.env.CLOUDINARY_API_KEY!,
+  api_secret: process.env.CLOUDINARY_API_SECRET!,
+});
+
+export async function GET() {
+  try {
+    await connectDB();
+    const images = await Gallery.find().sort({ date: -1 });
+    return NextResponse.json(images, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Failed to fetch images" },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(req: Request) {
+  try {
+    await connectDB();
+    const { public_id } = await req.json();
+    console.log(public_id)
+    if (!public_id) {
+      return NextResponse.json({ error: "public_id is required" }, { status: 400 });
+    }
+
+    // Delete from Cloudinary
+    const cloudRes = await cloudinary.v2.uploader.destroy(public_id);
+
+    if (cloudRes.result !== "ok" && cloudRes.result !== "not found") {
+      return NextResponse.json({ error: "Failed to delete image from Cloudinary" }, { status: 500 });
+    }
+
+    // Delete from MongoDB
+    const deleted = await Gallery.findOneAndDelete({ public_id });
+
+    if (!deleted) {
+      return NextResponse.json({ error: "Image not found in database" }, { status: 404 });
+    }
+
+    return NextResponse.json({ message: "Image deleted successfully" }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "Failed to delete image" },
       { status: 500 }
     );
   }

@@ -1,14 +1,20 @@
-// /app/api/gallery/route.ts
 import { NextResponse } from "next/server";
-import {connectDB} from "@/lib/mongodb";
 import GalleryImage from "@/models/galleryImage";
+import { connectDB } from "@/lib/mongodb";
 
-export async function GET() {
-  try {
-    await connectDB();
-    const images = await GalleryImage.find({}).sort({ createdAt: -1 });
-    return NextResponse.json(images);
-  } catch (error) {
-    return NextResponse.json({ message: "Error fetching gallery images", error }, { status: 500 });
+export async function GET(req: Request) {
+  await connectDB();
+
+  const { searchParams } = new URL(req.url);
+  const category = searchParams.get("category");
+  const limit = parseInt(searchParams.get("limit") || "9");
+
+  const filter: Record<string, unknown> = {};
+  if (category && category !== "All") {
+    filter.category = category;
   }
+
+  const images = await GalleryImage.find(filter).sort({ date: -1 }).limit(limit);
+
+  return NextResponse.json(images);
 }
