@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
-const navItems = [
+export const navItems = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about' },
   { name: "Principal's Desk", path: '/principal' },
