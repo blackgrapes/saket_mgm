@@ -10,18 +10,22 @@ export const navItems = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about' },
   { name: "Principal's Desk", path: '/principal' },
-  { name: 'Academics', path: '/academics' },
+  { name: 'Academics', path: '/academics',
+    children: [
+      { name: 'affiliation', path: '/academics/affiliation' },
+      { name: 'fees structure', path: '/academics/feestructure' },
+    ], },
   {
     name: 'Admissions',
     path: '/admissions',
-    children: [
-      { name: 'Online Admission Form', path: '/admissions/online-form' },
-    ],
   },
   { name: 'Facilities', path: '/facilities' },
-  { name: 'Gallery', path: '/gallery' },
+  { name: 'Gallery', path: '/gallery',children: [
+      { name: 'video gallery', path: '/gallery/videos' },
+    ], },
   { name: 'Contact Us', path: '/contact' },
   { name: 'News & Notices', path: '/news' },
+  { name: 'mandatory Enclosures', path: '/mandatoryEnclosures' },
 ];
 
 export default function Navbar() {

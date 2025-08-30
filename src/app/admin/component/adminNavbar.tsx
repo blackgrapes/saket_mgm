@@ -8,7 +8,6 @@ import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { name: "Dashboard", path: "/admin" },
-  { name: "Admissions", path: "/admin/admissions" },
   { name: "Contacts", path: "/admin/contacts" },
   { name: "Gallery", path: "/admin/gallery" },
   { name: "News", path: "/admin/news" },

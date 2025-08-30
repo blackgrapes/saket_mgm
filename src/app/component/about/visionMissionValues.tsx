@@ -7,7 +7,7 @@ export default function VisionMissionValues() {
     {
       icon: <Lightbulb className="w-12 h-12 text-red-500 mx-auto" />,
       title: "Our Vision",
-      text: "To blend the best of Indian values with modern education, inspiring students to excel academically and grow into responsible citizens.",
+      text: "Our vision is to merge the finest in Indian ethos and modern education practices in order to bring excellence in children and make them responsible citizens of the nation.",
     },
     {
       icon: <Target className="w-12 h-12 text-red-500 mx-auto" />,
@@ -25,7 +25,7 @@ export default function VisionMissionValues() {
     {
       icon: <Heart className="w-12 h-12 text-red-500 mx-auto" />,
       title: "Our Values",
-      text: "Integrity, respect, excellence, compassion, and perseverance guide our journey in shaping young minds.",
+      text: "Our mission is to develop excellence in academics to focus on Physical, Cultural and Personality Development of a child for his/her holistic development.",
     },
   ];
 
