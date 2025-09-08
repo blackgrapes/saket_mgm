@@ -11,7 +11,7 @@ export default function QuickConnect() {
         <div className="flex flex-col md:flex-row gap-4 justify-center">
           {/* WhatsApp */}
           <a
-            href="https://wa.me/911234567890" // Change to your number
+            href="https://wa.me/917592281897" // Change to your number
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 bg-red-500 text-white font-semibold px-6 py-3 rounded-md hover:bg-red-600 transition"
@@ -22,7 +22,7 @@ export default function QuickConnect() {
 
           {/* Call */}
           <a
-            href="tel:+911234567890" // Change to your number
+            href="tel:+9107592232026 " // Change to your number
             className="flex items-center justify-center gap-2 border border-gray-300 text-black font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition"
           >
             <Phone className="w-5 h-5" />
@@ -31,7 +31,7 @@ export default function QuickConnect() {
 
           {/* Email */}
           <a
-            href="mailto:info@example.com" // Change to your email
+            href="mailto:saketmgm@gmail.com" // Change to your email
             className="flex items-center justify-center gap-2 border border-gray-300 text-black font-semibold px-6 py-3 rounded-md hover:bg-gray-100 transition"
           >
             <Mail className="w-5 h-5" />

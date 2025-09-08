@@ -6,16 +6,7 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import { useRef, useEffect } from "react";
 
 const text = "Welcome to Saket MGM";
-const msg = `The present has reached a stage where fundamental questions 
-regarding human values have assumed paramount importance. We are 
-committed to provide a system of education that can unfold human 
-potentialities and channelize them towards essential qualities and 
-attitudes for a useful and fruitful existence in the modern world. 
-Our School strives to be the best school in the region where 
-education encompasses academics, values, culture, sports and every 
-aspect of the life of an individual, so that when a child grows up, 
-he/she is well prepared to face the challenges of life and prevail 
-in every scenario he/she will face.`;
+const msg = `We are a close knit community of parents, teachers and students working towards one goal, Education. When we mention education, it weaves a simple picture in our minds of a student learning and a teacher teaching, but education is beyond the classical pen-paper-black board theory. It has evolved into the giant wheel that has many spokes. The entire purpose of education is not to restrict itself to imparting bookish knowledge only but inculcate humanitarian values like wisdom, compassion, courage, humility, integrity and reliability in a student. Parents are the major contributors in our Endeavour. The light of education results in a promising and colorful future of the child. Teachers are trained not only to teach well but are also expected to inspire confidence and trust in their students and become role models. Further, the School inculcates in the students a respect for tradition and ensures discipline and good manners. The continuous effort to reinforce the commitment to achieve that extra mile helps students discover and reach their personal goals in life. We aim at ensuring that our comprehensive development programs provide students with an international learning experience, while preserving our core Indian values.`;
 
 const PrincipalMessage = () => {
   const router = useRouter();
@@ -56,16 +47,16 @@ const PrincipalMessage = () => {
         </motion.h2>
 
         <p className="text-center text-gray-500 text-lg mt-2 mb-10">
-          A message from our Principal
+          A message from our Chairman Desk
         </p>
 
         <div className="bg-white rounded-xl shadow-md p-6 md:p-10 flex flex-col md:flex-row items-center gap-8">
           {/* Principal Image */}
           <div className="flex-shrink-0">
-            <div className="w-48 h-48 relative rounded-full overflow-hidden">
+            <div className="w-48 h-48 relative rounded-full overflow-hidden ">
               <Image
-                src="/principal.jpg"
-                alt="BIBHAS RANJAN PAL Principal"
+                src="https://res.cloudinary.com/drlidswcd/image/upload/v1754900707/Chairman-1660383831_josqzq.jpg"
+                alt="Mr.Atul Shah"
                 fill
                 priority
                 sizes="192px"
@@ -96,7 +87,7 @@ const PrincipalMessage = () => {
             </p>
 
             <p className="text-[#f82f53] font-semibold text-lg mb-4">
-              BIBHAS RANJAN PAL, Principal
+              Mr.Atul Shah
             </p>
 
             <button
