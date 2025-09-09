@@ -13,25 +13,7 @@ export default function SafetyAndConvenience() {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-12 items-start">
-        {/* Transport */}
-        <div className="flex flex-col gap-4 text-left">
-          <h3 className="text-xl font-semibold">Secure Transport Services</h3>
-          <p className="text-gray-700">
-            We offer a reliable and safe transport system with a fleet of
-            well-maintained buses, ensuring timely pick-up and drop-off. All
-            routes are carefully planned, and buses are equipped with GPS
-            tracking for added security and parental peace of mind.
-          </p>
-          <div className="mt-4 w-full h-64 relative rounded-xl overflow-hidden">
-            <Image
-              src="https://images.unsplash.com/photo-1628471047004-f4fe9a1d9e18?q=80&w=1176&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="School Bus"
-              fill
-              className="object-contain"
-            />
-          </div>
-        </div>
+      <div className="grid gap-12 items-start">
 
         {/* CCTV */}
         <div className="flex flex-col gap-4 text-left">

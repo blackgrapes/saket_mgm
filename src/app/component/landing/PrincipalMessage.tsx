@@ -68,7 +68,7 @@ const PrincipalMessage = () => {
           {/* Text Content */}
           <div className="text-center md:text-left flex-1 md:max-w-3xl lg:max-w-4xl">
             <h3 className="text-2xl font-semibold text-[#f82f53] mb-4">
-              A Welcome from Our Principal
+              A Welcome from Our  Chairman
             </h3>
 
             {/* Typewriter paragraph */}
@@ -94,7 +94,7 @@ const PrincipalMessage = () => {
               className="bg-[#f82f53] text-white font-semibold py-2 px-6 rounded-md transition hover:bg-[#e72749] cursor-pointer"
               onClick={() => router.push("/principal")}
             >
-              Read Principal&apos;s Full Message
+              Read Chairman&apos;s Full Message
             </button>
           </div>
         </div>
