@@ -1,18 +1,14 @@
-"use client"
+"use client";
 
-import Image from "next/image"
+import Image from "next/image";
 
 export default function FacilitiesHero() {
   return (
     <section className="relative h-[80vh] w-full overflow-hidden">
-      {/* Background Image from Unsplash */}
-      <Image
+      <img
         src="https://res.cloudinary.com/dbgdrmqy6/image/upload/v1757573758/20250126_103223_0_1_f2nre3.jpg"
         alt="Facilities Background"
-        fill
-        style={{ objectFit: "cover", objectPosition: "center" }}
-        priority
-        className="brightness-75"
+        className="absolute inset-0 w-full h-full object-cover brightness-75"
       />
 
       {/* Text Overlay */}
@@ -27,5 +23,5 @@ export default function FacilitiesHero() {
         </p>
       </div>
     </section>
-  )
+  );
 }
