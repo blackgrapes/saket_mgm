@@ -6,12 +6,10 @@ export default function AcademicExcellence() {
     <section className="relative w-full h-[400px] flex items-center justify-center text-center">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <Image
+        <img
           src="https://res.cloudinary.com/dbgdrmqy6/image/upload/v1757573625/IMG_20250415_073407934_g96qox.jpg"
-          alt="Academic Excellence"
-          fill
-          className="object-cover brightness-75"
-          priority
+          alt="Facilities Background"
+          className="absolute inset-0 w-full h-full object-cover brightness-75"
         />
       </div>
 
