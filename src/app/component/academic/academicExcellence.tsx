@@ -7,7 +7,7 @@ export default function AcademicExcellence() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
+          src="https://res.cloudinary.com/dbgdrmqy6/image/upload/v1757573625/IMG_20250415_073407934_g96qox.jpg"
           alt="Academic Excellence"
           fill
           className="object-cover brightness-75"

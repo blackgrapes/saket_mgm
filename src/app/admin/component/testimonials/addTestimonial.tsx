@@ -39,7 +39,7 @@ export default function AddTestimonials() {
       cloudinaryForm.append("upload_preset", "ml_default"); // 👈 apna preset use karein
 
       const res = await fetch(
-        "https://api.cloudinary.com/v1_1/drlidswcd/image/upload",
+        "https://api.cloudinary.com/v1_1/dbgdrmqy6/image/upload",
         {
           method: "POST",
           body: cloudinaryForm,

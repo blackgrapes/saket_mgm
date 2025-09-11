@@ -4,47 +4,47 @@ const documents = [
   {
     id: 1,
     title: "Copies of Affiliation / Upgradation Letter and Recent Extension of Affiliation, if any",
-    file: "/pdfs/affiliation.pdf",
+    file: "https://drive.google.com/file/d/1FRquZmJLGK3nkm-KJPgwALEqqOUB2lnA/view?usp=drive_link",
   },
   {
     id: 2,
     title: "Copies of Societies / Trust / Company Registration / Renewal Certificate, as applicable",
-    file: "/pdfs/societies.pdf",
+    file: "https://drive.google.com/file/d/1knRVTzrIiYrtO9FvSGyLkFPnf8vl2tQc/view?usp=drive_link",
   },
   {
     id: 3,
     title: "Copy of No Objection Certificate (NOC) issued, if applicable by the State Govt / UT",
-    file: "/pdfs/no_objection.pdf",
+    file: "https://drive.google.com/file/d/1DPW_Bpsf502NtozUpdedvcUltNtaOcdy/view?usp=sharing",
   },
   {
     id: 4,
     title: "Copies of Recognition Certificate under RTE Act 2009, and its Renewal if applicable",
-    file: "/pdfs/recognition.pdf",
+    file: "https://drive.google.com/file/d/1c9sSSds7Z2_eBpCJLtJJDMQ6nMKkHmWn/view?usp=sharing",
   },
   {
     id: 5,
     title: "Copy of Valid Building Safety Certificate as per the National Building Code",
-    file: "/pdfs/building_safety.pdf",
+    file: "https://drive.google.com/file/d/1JXQnTjqjxd58-U1aKxzwyBwdIyCfcehN/view?usp=sharing",
   },
   {
     id: 6,
     title: "Copy of Valid Fire Safety Certificate issued by the competent authority",
-    file: "/pdfs/fire_safety.pdf",
+    file: "https://drive.google.com/file/d/1ifnjbXZPCVAdg43dLYbKEjU5ZGGLIq73/view?usp=drive_link",
   },
   {
     id: 7,
     title: "Copy of the DEO Certificate submitted by the school for Affiliation / Upgradation / Extension or self-certification by school",
-    file: "/pdfs/deo_certificate.pdf",
+    file: "https://drive.google.com/file/d/1Uab9-vAEcD9iImKQmcQTLzl26EPb09FU/view?usp=drive_link",
   },
   {
     id: 8,
     title: "Copies of valid Water, Health and Sanitation Certificates",
-    file: "/pdfs/water_health.pdf",
+    file: "https://drive.google.com/file/d/1badXuJYJTIjBeCK_Dm_6fyCyjmrTGJLj/view?usp=drive_link",
   },
   {
     id: 9,
     title: "Land Certificate",
-    file: "/pdfs/land_certificate.pdf",
+    file: "https://drive.google.com/file/d/19UQbnDIMgVGmGbLrB4NIlI51Jzoaha3Z/view?usp=sharing",
   },
 ];
 

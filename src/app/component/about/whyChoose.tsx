@@ -6,13 +6,13 @@ const features = [
     title: "Expert Teachers",
     description:
       "Rapidusly unleash exceptional partnerships with authoritative expertise. Efficiently engineer academic excellence.",
-    image: "https://plus.unsplash.com/premium_photo-1683887033225-148ed2c1297e?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "https://res.cloudinary.com/dbgdrmqy6/image/upload/v1757573608/IMG_3430_drwfqc.jpg",
   },
   {
     title: "Multimedia Class",
     description:
       "Inspire learning through state-of-the-art multimedia tools and interactive teaching methods.",
-    image: "https://images.unsplash.com/photo-1638957835514-224c57ffe617?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    image: "https://res.cloudinary.com/dbgdrmqy6/image/upload/v1757573648/20231125_103609_1_t3azqm.jpg",
   },
   {
     title: "Music And Art Class",

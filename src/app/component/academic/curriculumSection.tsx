@@ -27,7 +27,7 @@ export default function CurriculumSection() {
         {/* Right Image */}
         <div className="flex justify-center">
           <Image
-            src="https://images.unsplash.com/photo-1578593139939-cccb1e98698c?q=80&w=1193&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            src="https://res.cloudinary.com/dbgdrmqy6/image/upload/v1757573713/20231019_113151_pjdhcy.jpg"
             alt="Students in a classroom"
             width={600}
             height={400}

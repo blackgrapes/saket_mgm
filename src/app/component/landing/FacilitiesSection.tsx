@@ -7,7 +7,7 @@ const facilities = [
   {
     title: 'Modern Science Labs',
     image:
-      'https://images.unsplash.com/photo-1720540010412-343f3f81b91f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+      'https://res.cloudinary.com/dbgdrmqy6/image/upload/v1757573598/IMG-20240808-WA0031_ljezar.jpg',
     icon: '/lab-icon.png',
   },
   {
@@ -17,7 +17,7 @@ const facilities = [
   },
   {
     title: 'State-of-the-Art Sports Complex',
-    image: 'https://plus.unsplash.com/premium_photo-1708558514052-cf3fcfcd51c8?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    image: 'https://res.cloudinary.com/dbgdrmqy6/image/upload/v1757573703/20230516_071355_0_pufhxn.jpg',
     icon: '/sports-icon.png',
   },
 ];

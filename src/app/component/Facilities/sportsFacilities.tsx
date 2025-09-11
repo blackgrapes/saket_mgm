@@ -4,46 +4,46 @@ import Image from "next/image"
 
 const sportsFacilities = [
   {
-    title: "Football Field",
+    title: "Cricket Field",
     description:
-      "A full-sized, lush green football field for training, inter-school matches, and physical education classes.",
+      "A full-sized, lush green cricket ground for training, inter-school matches, and physical education classes.",
     image:
-      "https://images.unsplash.com/photo-1715545226118-dc42faf8d6f4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://res.cloudinary.com/dbgdrmqy6/image/upload/v1757572600/20230502_065920_zrgvjn.jpg",
   },
   {
     title: "Basketball Courts",
     description:
       "Multiple well-maintained outdoor and indoor basketball courts for practice and competitive games.",
     image:
-      "https://plus.unsplash.com/premium_photo-1674128995341-28c1e42dda94?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://res.cloudinary.com/dbgdrmqy6/image/upload/v1757572497/20230516_071355_0_2_mdmxqa.jpg",
   },
   {
-    title: "Athletics Track",
+    title: "Yoga compound",
     description:
-      "A dedicated running track and facilities for various track and field events, encouraging athletic development.",
+      "A dedicated open-air and indoor space for yoga practice, promoting mindfulness, flexibility, and overall well-being.",
     image:
-      "https://images.unsplash.com/photo-1674468191015-27d5765712ab?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://res.cloudinary.com/dbgdrmqy6/image/upload/v1757573373/20230620_074828_emohzp.jpg",
   },
   {
-    title: "Student Council",
+    title: "Student Playground",
     description:
-      "The Student Council at Saket MGM Senior Secondary School is a democratically elected body that represents the voice of the student community. It plays a vital role in fostering leadership, responsibility.",
+      "The playground at Saket MGM Senior Secondary School is a vibrant space that promotes physical fitness, teamwork, and recreation. It provides students with opportunities to engage in sports, outdoor activities, and holistic development beyond the classroom.",
     image:
-      "https://images.unsplash.com/photo-1669092982937-294045bcc0f1?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://res.cloudinary.com/dbgdrmqy6/image/upload/v1757574146/comprase-image_1_abka09.jpg",
   },
   {
-    title: "Badminton Courts",
+    title: "school swings & play area",
     description:
-      "Well-lit indoor badminton courts with professional-grade flooring and equipment.",
+      "A safe and cheerful play area equipped with swings, slides, and recreational facilities, providing young students a joyful space for fun, relaxation, and social interaction.",
     image:
-      "https://images.unsplash.com/photo-1588278508976-a232eec798be?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://res.cloudinary.com/dbgdrmqy6/image/upload/v1757573645/20231219_103837_2_jziatf.jpg",
   },
   {
-    title: "Gymnasium",
+    title: "project & drawing",
     description:
-      "A spacious gymnasium equipped with modern fitness machines and training facilities.",
+      "A well-equipped project and drawing room that nurtures creativity, innovation, and artistic skills, providing students with space to express ideas through models, sketches, and creative artwork.",
     image:
-      "https://images.unsplash.com/photo-1599121118834-14b8ab00020c?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://res.cloudinary.com/dbgdrmqy6/image/upload/v1757573591/IMG-20240808-WA0023_hatkqw.jpg",
   },
 ]
 

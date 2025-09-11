@@ -7,7 +7,7 @@ export default function FacilitiesHero() {
     <section className="relative h-[80vh] w-full overflow-hidden">
       {/* Background Image from Unsplash */}
       <Image
-        src="https://images.unsplash.com/photo-1594182878770-c05ece34b1f2?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        src="https://res.cloudinary.com/dbgdrmqy6/image/upload/v1757573758/20250126_103223_0_1_f2nre3.jpg"
         alt="Facilities Background"
         fill
         style={{ objectFit: "cover", objectPosition: "center" }}
