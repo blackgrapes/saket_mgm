@@ -2,7 +2,7 @@
 'use client';
 
 import Link from "next/link";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Facebook, Youtube } from "lucide-react";
 import { navItems } from "./navbar";
 
 export default function Footer() {
@@ -81,18 +81,13 @@ export default function Footer() {
 
           {/* Social Icons */}
           <div className="flex items-center gap-4">
-            <a href="#" className="text-gray-600 hover:text-[#f82f53] transition">
+            <a href="https://www.facebook.com/SaketMGMschool" className="text-gray-600 hover:text-[#f82f53] transition">
               <Facebook size={20} />
             </a>
-            <a href="#" className="text-gray-600 hover:text-[#f82f53] transition">
-              <Twitter size={20} />
+            <a href="https://www.youtube.com/channel/UCOE8lb4Rqj6Vto9qMC1Z5wQ" className="text-gray-600 hover:text-[#f82f53] transition">
+              <Youtube size={20} />
             </a>
-            <a href="#" className="text-gray-600 hover:text-[#f82f53] transition">
-              <Instagram size={20} />
-            </a>
-            <a href="#" className="text-gray-600 hover:text-[#f82f53] transition">
-              <Linkedin size={20} />
-            </a>
+          
           </div>
         </div>
       </div>
