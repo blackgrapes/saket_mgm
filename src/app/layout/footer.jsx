@@ -15,7 +15,7 @@ export default function Footer() {
           <div className="flex flex-col items-center md:items-start">
             <img src="/logo.png" alt="logo" className="w-12 h-12" />
             <div className="text-2xl font-bold text-[#f82f53] capitalize mt-2">
-              MGM saket
+              saket MGM 
             </div>
             <p className="text-sm text-gray-600 mt-4">
               © {new Date().getFullYear()} Saket MGM School. All rights reserved.

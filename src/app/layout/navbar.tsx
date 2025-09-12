@@ -40,7 +40,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="Logo" width={30} height={30} />
           <span className="text-xl font-bold text-[#f82f53] capitalize">
-            MGM saket
+            saket MGM 
           </span>
         </div>
 
