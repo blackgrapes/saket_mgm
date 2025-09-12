@@ -9,7 +9,7 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 export const navItems = [
   { name: 'Home', path: '/' },
   { name: 'About Us', path: '/about' },
-  { name: "Principal's Desk", path: '/principal' },
+  { name: "Management Desk", path: '/principal' },
   { name: 'Academics', path: '/academics',
     children: [
       { name: 'affiliation', path: '/academics/affiliation' },
@@ -25,7 +25,7 @@ export const navItems = [
     ], },
   { name: 'Contact Us', path: '/contact' },
   { name: 'News & Notices', path: '/news' },
-  { name: 'mandatory Enclosures', path: '/mandatoryEnclosures' },
+  { name: 'Mandatory Enclosures', path: '/mandatoryEnclosures' },
 ];
 
 export default function Navbar() {
@@ -40,7 +40,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="Logo" width={30} height={30} />
           <span className="text-xl font-bold text-[#f82f53] capitalize">
-            mgm saket
+            MGM saket
           </span>
         </div>
 

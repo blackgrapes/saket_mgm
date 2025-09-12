@@ -5,10 +5,10 @@ import { motion, useInView } from 'framer-motion';
 import { Library, Users, Medal, GraduationCap } from 'lucide-react';
 
 const stats = [
-  { icon: <Library size={40} className="text-[#f82f53]" />, value: 13, label: 'Years of Legacy', suffix: '+' },
-  { icon: <Users size={40} className="text-[#f82f53]" />, value: 3600, label: 'Students Enrolled', suffix: '+' },
-  { icon: <Medal size={40} className="text-[#f82f53]" />, value: 150, label: 'Qualified Faculty', suffix: '+' },
-  { icon: <GraduationCap size={40} className="text-[#f82f53]" />, value: 120, label: 'Diverse Programs', suffix: '+' },
+  { icon: <Library size={40} className="text-[#f82f53]" />, value: 15, label: 'Years of Legacy', suffix: '+' },
+  { icon: <Users size={40} className="text-[#f82f53]" />, value: 3000, label: 'Students Enrolled', suffix: '+' },
+  { icon: <Medal size={40} className="text-[#f82f53]" />, value: 130, label: 'Qualified Faculty', suffix: '+' },
+  { icon: <GraduationCap size={40} className="text-[#f82f53]" />, value: 30, label: 'Diverse Programs', suffix: '+' },
 ];
 
 export default function GlanceSection() {

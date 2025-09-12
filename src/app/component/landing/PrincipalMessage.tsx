@@ -47,7 +47,7 @@ const PrincipalMessage = () => {
         </motion.h2>
 
         <p className="text-center text-gray-500 text-lg mt-2 mb-10">
-          A message from our Chairman Desk
+           message from our Chairman Desk
         </p>
 
         <div className="bg-white rounded-xl shadow-md p-6 md:p-10 flex flex-col md:flex-row items-center gap-8">
@@ -68,7 +68,7 @@ const PrincipalMessage = () => {
           {/* Text Content */}
           <div className="text-center md:text-left flex-1 md:max-w-3xl lg:max-w-4xl">
             <h3 className="text-2xl font-semibold text-[#f82f53] mb-4">
-              A Welcome from Our  Chairman
+               Welcome from Our  Chairman
             </h3>
 
             {/* Typewriter paragraph */}

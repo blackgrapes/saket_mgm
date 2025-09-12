@@ -37,7 +37,7 @@ const profiles = [
   },
   {
     role: "Director",
-    heading: "From the Director's Desk",
+    heading: "From the director's desk",
     name: "director",
     image: "https://res.cloudinary.com/drlidswcd/image/upload/v1754902608/Director-1643801753_ud36tu.png",
     content: `On behalf of the Management I would like to congratulate the staff, the students and all the others directly and indirectly associated with Saket MGM Sr. Sec. School and Saket Shishu Ranjan Hr. Sec. School for the successful completion of a glorious tenure of 35 years. At this juncture, I would like to acknowledge and extend my heartfelt gratitude to all those who have made significant contributions to turn these institutions started 35 years ago into one among the premier institutions of this city. 35 years in the life of an institution signifies the coming of age and maturity. Maturity, to objectively analyze its achievements and assess how much more needs to be done. As I glance back at the performance of the children in various activities during the previous years, be it curricular, co-curricular, I can confidently say that our students have certainly made us, parents and teachers proud of their achievements. We are aware of the challenges that lie ahead and will leave no stone unturned to further enrich the rich legacy of this esteemed institution. May the Almighty shower his blessings on all of us and give us the strength to face all the challenges that come in our way.`
