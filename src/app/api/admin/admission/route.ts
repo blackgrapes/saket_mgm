@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import Admission from '@/models/admission';
 import { connectDB } from '@/lib/mongodb';
 
-export async function GET(req: Request) {
+export async function GET() {
   try {
     await connectDB();
 

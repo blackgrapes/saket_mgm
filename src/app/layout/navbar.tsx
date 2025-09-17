@@ -1,31 +1,37 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 export const navItems = [
-  { name: 'Home', path: '/' },
-  { name: 'About Us', path: '/about' },
-  { name: "Management Desk", path: '/principal' },
-  { name: 'Academics', path: '/academics',
-    children: [
-      { name: 'affiliation', path: '/academics/affiliation' },
-      { name: 'fees structure', path: '/academics/feestructure' },
-    ], },
+  { name: "Home", path: "/" },
+  { name: "About Us", path: "/about" },
+  { name: "Management Desk", path: "/principal" },
   {
-    name: 'Admissions',
-    path: '/admissions',
+    name: "Academics",
+    path: "/academics",
+    children: [
+      { name: "affiliation", path: "/academics/affiliation" },
+      { name: "fees structure", path: "/academics/feestructure" },
+    ],
   },
-  { name: 'Facilities', path: '/facilities' },
-  { name: 'Gallery', path: '/gallery',children: [
-      { name: 'video gallery', path: '/gallery/videos' },
-    ], },
-  { name: 'Contact Us', path: '/contact' },
-  { name: 'News & Notices', path: '/news' },
-  { name: 'Mandatory Enclosures', path: '/mandatoryEnclosures' },
+  {
+    name: "Admissions",
+    path: "/admissions",
+    children: [{ name: "Transfer Certificate (T.C)", path: "/transferCertificate" }],
+  },
+  { name: "Facilities", path: "/facilities" },
+  {
+    name: "Gallery",
+    path: "/gallery",
+    children: [{ name: "Video Gallery", path: "/gallery/videos" },{name: "Image Gallery", path: "/gallery"}],
+  },
+  { name: "Contact Us", path: "/contact" },
+  { name: "News & Notices", path: "/news" },
+  { name: "Mandatory Enclosures", path: "/mandatoryEnclosures" },
 ];
 
 export default function Navbar() {
@@ -40,7 +46,7 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="Logo" width={30} height={30} />
           <span className="text-xl font-bold text-[#f82f53] capitalize">
-            saket MGM 
+            saket MGM
           </span>
         </div>
 
@@ -52,12 +58,14 @@ export default function Navbar() {
                 href={item.path}
                 className={`flex items-center gap-1 ${
                   pathname === item.path
-                    ? 'text-[#f82f53] font-semibold'
-                    : 'text-gray-800'
+                    ? "text-[#f82f53] font-semibold"
+                    : "text-gray-800"
                 } hover:text-[#f82f53] transition-colors`}
               >
                 {item.name}
-                {item.children && <ChevronDown size={16} className="mt-[2px]" />}
+                {item.children && (
+                  <ChevronDown size={16} className="mt-[2px]" />
+                )}
               </Link>
 
               {/* Dropdown Menu (Desktop) */}
@@ -69,8 +77,8 @@ export default function Navbar() {
                         href={child.path}
                         className={`block px-4 py-2 text-sm ${
                           pathname === child.path
-                            ? 'text-[#f82f53] font-semibold'
-                            : 'text-gray-800'
+                            ? "text-[#f82f53] font-semibold"
+                            : "text-gray-800"
                         } hover:bg-gray-100 hover:text-[#f82f53]`}
                       >
                         {child.name}
@@ -103,7 +111,9 @@ export default function Navbar() {
                     className="flex items-center justify-between"
                     onClick={() =>
                       item.children
-                        ? setOpenDropdown(openDropdown === item.name ? null : item.name)
+                        ? setOpenDropdown(
+                            openDropdown === item.name ? null : item.name
+                          )
                         : setIsOpen(false)
                     }
                   >
@@ -111,8 +121,8 @@ export default function Navbar() {
                       href={item.path}
                       className={`block ${
                         pathname === item.path
-                          ? 'text-[#f82f53] font-semibold'
-                          : 'text-gray-800'
+                          ? "text-[#f82f53] font-semibold"
+                          : "text-gray-800"
                       } hover:text-[#f82f53] transition-colors`}
                     >
                       {item.name}
@@ -121,7 +131,7 @@ export default function Navbar() {
                       <ChevronDown
                         size={18}
                         className={`transition-transform duration-200 ${
-                          openDropdown === item.name ? 'rotate-180' : ''
+                          openDropdown === item.name ? "rotate-180" : ""
                         }`}
                       />
                     )}
@@ -137,8 +147,8 @@ export default function Navbar() {
                             onClick={() => setIsOpen(false)}
                             className={`block ${
                               pathname === child.path
-                                ? 'text-[#f82f53] font-semibold'
-                                : 'text-gray-800'
+                                ? "text-[#f82f53] font-semibold"
+                                : "text-gray-800"
                             } hover:text-[#f82f53]`}
                           >
                             {child.name}

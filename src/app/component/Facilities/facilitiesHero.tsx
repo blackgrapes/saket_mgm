@@ -1,7 +1,5 @@
 "use client";
 
-import Image from "next/image";
-
 export default function FacilitiesHero() {
   return (
     <section className="relative h-[80vh] w-full overflow-hidden">

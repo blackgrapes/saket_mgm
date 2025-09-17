@@ -13,6 +13,7 @@ const navItems = [
   { name: "News", path: "/admin/news" },
   // { name: "Newsletter", path: "/admin/newsletter" },
   { name: "Testimonials", path: "/admin/testimonials" },
+  { name: "Transfer Certificate", path: "/admin/transferCertificate" },
 ];
 
 

@@ -1,6 +1,4 @@
 // components/AcademicExcellence.tsx
-import Image from "next/image";
-
 export default function AcademicExcellence() {
   return (
     <section className="relative w-full h-[400px] flex items-center justify-center text-center">
