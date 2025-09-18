@@ -7,13 +7,13 @@ export default function AdminTCUpload() {
   const [formData, setFormData] = useState({
     studentName: "",
     studentClass: "",
-    rollNumber: "",
     admissionNumber: "",
   });
 
   const [tcFile, setTcFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
   // class list array
   const classOptions = [
@@ -34,36 +34,59 @@ export default function AdminTCUpload() {
     "12th",
   ];
 
+  // input validation function
+  const validateForm = () => {
+    const newErrors: { [key: string]: string } = {};
+
+    if (!/^[A-Za-z ]+$/.test(formData.studentName.trim())) {
+      newErrors.studentName = "Only letters and spaces allowed in name";
+    }
+
+    if (!/^[0-9]+$/.test(formData.admissionNumber.trim())) {
+      newErrors.admissionNumber = "Only numbers allowed in admission number";
+    }
+
+    if (!formData.studentClass) {
+      newErrors.studentClass = "Class is required";
+    }
+
+    if (!tcFile) {
+      newErrors.tcFile = "TC image is required";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   // handle text/select input change
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ ...errors, [e.target.name]: "" }); // clear error
   };
 
   // handle file change
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       setTcFile(e.target.files[0]);
+      setErrors({ ...errors, tcFile: "" }); // clear error
     }
   };
 
   // handle form submit
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setUploading(true);
     setSuccessMessage("");
 
-    if (!tcFile) {
-      alert("Please upload the TC image.");
-      setUploading(false);
-      return;
-    }
+    if (!validateForm()) return;
+
+    setUploading(true);
 
     try {
       // upload TC to Cloudinary
       const cloudinaryForm = new FormData();
-      cloudinaryForm.append("file", tcFile);
+      cloudinaryForm.append("file", tcFile!);
       cloudinaryForm.append("upload_preset", "ml_default"); // replace with your preset
 
       const res = await fetch(
@@ -84,7 +107,6 @@ export default function AdminTCUpload() {
       const payload = {
         studentName: formData.studentName.trim(),
         studentClass: formData.studentClass.trim(),
-        rollNumber: formData.rollNumber.trim(),
         admissionNumber: formData.admissionNumber.trim(),
         tcUrl: data.secure_url,
         public_id: data.public_id,
@@ -111,7 +133,6 @@ export default function AdminTCUpload() {
       setFormData({
         studentName: "",
         studentClass: "",
-        rollNumber: "",
         admissionNumber: "",
       });
       setTcFile(null);
@@ -151,6 +172,9 @@ export default function AdminTCUpload() {
             className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#f82f53] outline-none transition"
             required
           />
+          {errors.studentName && (
+            <p className="text-red-500 text-sm mt-1">{errors.studentName}</p>
+          )}
         </div>
 
         {/* Admission Number */}
@@ -171,6 +195,11 @@ export default function AdminTCUpload() {
             className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#f82f53] outline-none transition"
             required
           />
+          {errors.admissionNumber && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.admissionNumber}
+            </p>
+          )}
         </div>
 
         {/* Select Class */}
@@ -196,26 +225,9 @@ export default function AdminTCUpload() {
               </option>
             ))}
           </select>
-        </div>
-
-        {/* Roll Number */}
-        <div>
-          <label
-            htmlFor="rollNumber"
-            className="block mb-1 text-sm font-medium text-gray-700"
-          >
-            Roll Number
-          </label>
-          <input
-            id="rollNumber"
-            name="rollNumber"
-            type="text"
-            placeholder="Enter roll number"
-            value={formData.rollNumber}
-            onChange={handleInputChange}
-            className="w-full border border-gray-300 rounded-lg p-3 focus:ring-2 focus:ring-[#f82f53] outline-none transition"
-            required
-          />
+          {errors.studentClass && (
+            <p className="text-red-500 text-sm mt-1">{errors.studentClass}</p>
+          )}
         </div>
 
         {/* TC File Upload */}
@@ -238,6 +250,9 @@ export default function AdminTCUpload() {
             <p className="text-sm text-gray-500 mt-1">
               Selected: {tcFile.name}
             </p>
+          )}
+          {errors.tcFile && (
+            <p className="text-red-500 text-sm mt-1">{errors.tcFile}</p>
           )}
         </div>
 

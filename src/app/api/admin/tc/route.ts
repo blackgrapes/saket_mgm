@@ -1,22 +1,31 @@
+// src/app/api/admin/tc/route.ts
 import { connectDB } from "@/lib/mongodb";
 import TC from "@/models/tc";
 import { NextResponse } from "next/server";
+import cloudinary from "cloudinary";
 
+// -------------------- Cloudinary config --------------------
+cloudinary.v2.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+// -------------------- POST: Create TC --------------------
 export async function POST(req: Request) {
   try {
     await connectDB();
     const data = await req.json();
 
-    const { studentName, studentClass, rollNumber, admissionNumber, tcUrl, public_id } = data;
+    const { studentName, studentClass,  admissionNumber, tcUrl, public_id } = data;
 
-    if (!studentName || !studentClass || !rollNumber || !admissionNumber || !tcUrl || !public_id) {
+    if (!studentName || !studentClass  || !admissionNumber || !tcUrl || !public_id) {
       return NextResponse.json({ error: "All fields are required" }, { status: 400 });
     }
 
     const newTC = await TC.create({
       studentName,
       studentClass,
-      rollNumber,
       admissionNumber,
       tcUrl,
       public_id,
@@ -24,20 +33,12 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ message: "TC saved successfully", tc: newTC }, { status: 201 });
   } catch (err) {
-    console.error("API Error:", err);
+    console.error("POST Error:", err);
     return NextResponse.json({ error: "Failed to save TC" }, { status: 500 });
   }
 }
 
-import cloudinary from "cloudinary";
-
-// Configure Cloudinary
-cloudinary.v2.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
-
+// -------------------- GET: Fetch all TCs --------------------
 export async function GET() {
   try {
     await connectDB();
@@ -49,27 +50,53 @@ export async function GET() {
   }
 }
 
+// -------------------- DELETE: Remove TC --------------------
 export async function DELETE(req: Request) {
   try {
     await connectDB();
-    const { id } = await req.json();
 
-    if (!id) {
-      return NextResponse.json({ error: "TC ID required" }, { status: 400 });
-    }
+    const { id } = await req.json();
+    if (!id) return NextResponse.json({ error: "TC ID required" }, { status: 400 });
 
     const tc = await TC.findById(id);
-    if (!tc) {
-      return NextResponse.json({ error: "TC not found" }, { status: 404 });
+    if (!tc) return NextResponse.json({ error: "TC not found" }, { status: 404 });
+
+    // Delete image from Cloudinary first
+    if (tc.tcUrl) {
+      try {
+        console.log("TC URL:", tc.tcUrl);
+
+        const url = new URL(tc.tcUrl);
+        // Extract everything after /upload/
+        let publicId = url.pathname.split('/upload/')[1]; 
+        if (!publicId) throw new Error("Invalid Cloudinary URL");
+
+        // Remove version prefix (v123456...) if present
+        publicId = publicId.replace(/^v\d+\//, "");
+        // Remove file extension
+        publicId = publicId.replace(/\.[^/.]+$/, "");
+
+        console.log("Computed publicId for deletion:", publicId);
+
+        const result = await cloudinary.v2.uploader.destroy(publicId);
+        console.log("Cloudinary delete result:", result);
+
+        if (result.result !== "ok") {
+          return NextResponse.json({ error: "Failed to delete image from Cloudinary" }, { status: 500 });
+        }
+
+      } catch (err) {
+        console.error("Failed to delete Cloudinary image:", err);
+        return NextResponse.json({ error: "Failed to delete image from Cloudinary" }, { status: 500 });
+      }
     }
 
-    // Delete image from Cloudinary
-    await cloudinary.v2.uploader.destroy(tc.public_id);
-
-    // Delete from MongoDB
+    // Delete TC from MongoDB
     await TC.findByIdAndDelete(id);
+    console.log("Deleted TC from MongoDB:", id);
 
     return NextResponse.json({ message: "TC deleted successfully" }, { status: 200 });
+
   } catch (err) {
     console.error("DELETE Error:", err);
     return NextResponse.json({ error: "Failed to delete TC" }, { status: 500 });

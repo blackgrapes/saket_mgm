@@ -15,7 +15,8 @@ export default function AdminContacts() {
       .then((data) => {
         setContacts(data);
         setLoading(false);
-      });
+      })
+      .catch(() => setLoading(false));
   }, []);
 
   if (loading) return <p className="text-center p-4">Loading...</p>;
@@ -47,6 +48,7 @@ export default function AdminContacts() {
             <tr className="bg-gray-200 text-left">
               <th className="p-2 border">Name</th>
               <th className="p-2 border">Email</th>
+              <th className="p-2 border">Phone</th>
               <th className="p-2 border">Subject</th>
               <th className="p-2 border">Message</th>
               <th className="p-2 border">Date</th>
@@ -57,6 +59,7 @@ export default function AdminContacts() {
               <tr key={c._id} className="border-t hover:bg-gray-50">
                 <td className="p-2 border">{c.name}</td>
                 <td className="p-2 border break-all">{c.email}</td>
+                <td className="p-2 border">{c.phone || "—"}</td>
                 <td className="p-2 border">{c.subject}</td>
                 <td className="p-2 border max-w-xs truncate sm:whitespace-normal">
                   {c.message}

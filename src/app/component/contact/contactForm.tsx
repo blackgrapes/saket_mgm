@@ -7,6 +7,7 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     subject: "",
     message: "",
   });
@@ -23,24 +24,42 @@ export default function ContactForm() {
 
   const validate = () => {
     const tempErrors: { [key: string]: string } = {};
+
+    // Name
     if (!formData.name.trim()) {
-    tempErrors.name = "Name is required.";
-  } else if (formData.name.trim().length < 2) {
-    tempErrors.name = "Name must be at least 2 characters.";
-  }
+      tempErrors.name = "Name is required.";
+    } else if (formData.name.trim().length < 2) {
+      tempErrors.name = "Name must be at least 2 characters.";
+    }
+
+    // Phone
+    if (!formData.phone.trim()) {
+      tempErrors.phone = "Phone number is required.";
+    } else if (!/^\+?[0-9]{10,15}$/.test(formData.phone)) {
+      tempErrors.phone = "Invalid phone number format.";
+    }
+
+    // Subject
     if (!formData.subject.trim()) {
-    tempErrors.subject = "subject is required.";
-  } else if (formData.subject.trim().length < 3) {
-    tempErrors.subject = "subject must be at least 3 characters.";
-  }
+      tempErrors.subject = "Subject is required.";
+    } else if (formData.subject.trim().length < 3) {
+      tempErrors.subject = "Subject must be at least 3 characters.";
+    }
+
+    // Email
     if (!formData.email.trim()) {
       tempErrors.email = "Email is required.";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       tempErrors.email = "Invalid email format.";
     }
-    if (!formData.message.trim()) tempErrors.message = "Message is required.";
-    else if (formData.message.length < 10)
+
+    // Message
+    if (!formData.message.trim()) {
+      tempErrors.message = "Message is required.";
+    } else if (formData.message.length < 10) {
       tempErrors.message = "Message should be at least 10 characters.";
+    }
+
     setErrors(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
@@ -68,7 +87,7 @@ export default function ContactForm() {
 
       if (res.ok) {
         setStatus("✅ Message sent successfully!");
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
         setErrors({});
       } else {
         setStatus(`❌ ${data.error || "Something went wrong."}`);
@@ -84,6 +103,7 @@ export default function ContactForm() {
       <div className="bg-white p-8 rounded-lg w-full max-w-2xl ">
         <h1 className="text-2xl font-bold text-center mb-6">Send Us a Message</h1>
         <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Name */}
           <div>
             <label className="block font-medium">Your Name</label>
             <input
@@ -97,6 +117,8 @@ export default function ContactForm() {
             />
             {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
           </div>
+
+          {/* Email */}
           <div>
             <label className="block font-medium">Your Email</label>
             <input
@@ -110,6 +132,23 @@ export default function ContactForm() {
             />
             {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
           </div>
+
+          {/* Phone */}
+          <div>
+            <label className="block font-medium">Mobile Number</label>
+            <input
+              type="tel"
+              name="phone"
+              autoComplete="off"
+              value={formData.phone}
+              onChange={handleChange}
+              className={`w-full border rounded-lg px-4 py-2 ${errors.phone ? "border-red-500" : ""}`}
+              placeholder="+91 9876543210"
+            />
+            {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+          </div>
+
+          {/* Subject */}
           <div>
             <label className="block font-medium">Subject</label>
             <input
@@ -123,6 +162,8 @@ export default function ContactForm() {
             />
             {errors.subject && <p className="text-red-500 text-sm">{errors.subject}</p>}
           </div>
+
+          {/* Message */}
           <div>
             <label className="block font-medium">Your Message</label>
             <textarea
@@ -136,6 +177,8 @@ export default function ContactForm() {
             />
             {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
           </div>
+
+          {/* Submit */}
           <button
             type="submit"
             disabled={loading}

@@ -6,7 +6,7 @@ export default function LegacySection() {
       <div className="max-w-5xl mx-auto text-center">
         {/* Heading */}
         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6">
-          our legacy, our future 
+          Our legacy, Our future 
         </h2>
 
         {/* Paragraph */}
