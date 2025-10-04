@@ -84,7 +84,7 @@ export default function Footer() {
             <a href="https://www.facebook.com/SaketMGMschool" className="text-gray-600 hover:text-[#f82f53] transition">
               <Facebook size={20} />
             </a>
-            <a href="https://www.youtube.com/channel/UCOE8lb4Rqj6Vto9qMC1Z5wQ" className="text-gray-600 hover:text-[#f82f53] transition">
+            <a href="https://youtube.com/@saketmgm887" className="text-gray-600 hover:text-[#f82f53] transition">
               <Youtube size={20} />
             </a>
           
